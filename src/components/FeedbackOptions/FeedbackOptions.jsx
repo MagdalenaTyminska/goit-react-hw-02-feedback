@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import css from './FeedbackOptions.module.css';
 
 export class FeedbackOptions extends Component {
   render() {
@@ -8,7 +10,12 @@ export class FeedbackOptions extends Component {
       <>
         <div>
           {stateOptions.map(option => (
-            <button type="button" onClick={onLeaveFeedback} name={option}>
+            <button
+              className={css.feedbackButton}
+              type="button"
+              onClick={onLeaveFeedback}
+              name={option}
+            >
               {option}
             </button>
           ))}
@@ -17,3 +24,8 @@ export class FeedbackOptions extends Component {
     );
   }
 }
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.object,
+  onLeaveFeedback: PropTypes.func,
+};
